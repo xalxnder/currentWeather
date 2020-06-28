@@ -14,14 +14,14 @@ def notify(message):
         f'osascript -e \'display notification \"{message}\" with title \"Current Weather\"\'')
 
 
-def getWeather():
+def get_weather():
     url = 'http://api.weatherstack.com/current?access_key=f99ceb7b64a7cc1b208aa07be456a127&query=Philadelphia'
     response = requests.get(url)
     data = json.loads(response.content)
-    tempCelcius = data['current']['temperature']
-    farenheit(tempCelcius)
-    notify(farenheit(tempCelcius))
+    temp_Celcius = data['current']['temperature']
+    farenheit(temp_Celcius)
+    notify(farenheit(temp_Celcius))
 
 
 if __name__ == "__main__":
-    getWeather()
+    get_weather()
